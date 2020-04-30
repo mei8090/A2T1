@@ -1,0 +1,17 @@
+# Question 1a
+
+awk -F"\t" '$2 < 1000' expression.tab
+
+
+# Question 1b
+
+awk -F"\t" '$2 ~/ase/' annotation.tab
+
+
+# Question 1c
+
+awk -F"\t" '$3 ~/Purine biosynthesis/ || /Pyrimidine biosynthesis/' annotation.tab
+
+
+
+
