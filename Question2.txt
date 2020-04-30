@@ -1,0 +1,31 @@
+# Question 2a
+
+#this line of code omits some personal privacy information
+
+scp -i "xxxxxxx.pem"  LOCAL LOCATION/world_x.sql ubuntu@ec2-xxxxxxxx
+
+
+#grant privileges to user awkologist
+
+sudo mysql
+grant all on world_x.* to awkologist@localhost identified by "awkology";
+
+
+#install the database
+
+mysql -u awkologist -p
+source /home/ubuntu/world_x.sql;
+use world_x;
+show tables;
+
+
+# Question 2b
+
+select co.Name, ci.Name, cl.Percentage
+from (country co inner join city ci on co.Capital=ci.ID)
+inner join countrylanguage cl on co.Code=cl.CountryCode
+where cl.Language= 'English' and cl.Percentage>50;
+
+
+
+
